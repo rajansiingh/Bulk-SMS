@@ -18,6 +18,7 @@ import createFetch from './createFetch';
 import history from './history';
 import { updateMeta } from './DOMUtils';
 import router from './router';
+import configureStore from "./store/configureStore";
 
 // Enables critical path CSS rendering
 // https://github.com/kriasoft/isomorphic-style-loader
@@ -43,7 +44,7 @@ let currentLocation = history.location;
 let appInstance;
 
 const scrollPositionsHistory = {};
-
+let store;
 // Re-render the app when window.location changes
 async function onLocationChange(location, action) {
   // Remember the latest scroll position for the previous location
@@ -76,6 +77,12 @@ async function onLocationChange(location, action) {
       history.replace(route.redirect);
       return;
     }
+
+    // adding and modifying store to add user info
+    if (!store) {
+      store = configureStore(window.App.reduxState || {});
+    }
+    context.store = store;
 
     const renderReactApp = isInitialRender ? ReactDOM.hydrate : ReactDOM.render;
     appInstance = renderReactApp(

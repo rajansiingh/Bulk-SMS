@@ -24,6 +24,7 @@ import router from './router';
 // import assets from './asset-manifest.json'; // eslint-disable-line import/no-unresolved
 import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unresolved
 import config from './config';
+import configureStore from "./store/configureStore";
 
 process.on('unhandledRejection', (reason, p) => {
   console.error('Unhandled Rejection at:', p, 'reason:', reason);
@@ -74,6 +75,8 @@ app.get('*', async (req, res, next) => {
       cookie: req.headers.cookie,
     });
 
+    const initialState = {};
+    const store = configureStore(initialState);
     // Global (context) variables that can be easily accessed from any React component
     // https://facebook.github.io/react/docs/context.html
     const context = {
@@ -81,6 +84,7 @@ app.get('*', async (req, res, next) => {
       // The twins below are wild, be careful!
       pathname: req.path,
       query: req.query,
+      store
     };
 
     const route = await router.resolve(context);
@@ -113,6 +117,7 @@ app.get('*', async (req, res, next) => {
     data.scripts = Array.from(scripts);
     data.app = {
       apiUrl: config.api.clientUrl,
+      reduxState: context.store.getState(),
     };
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
