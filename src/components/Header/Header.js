@@ -9,7 +9,7 @@
 
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
-import s from './Header.css';
+import s from './Header.scss';
 import Link from '../Link';
 import Navigation from '../Navigation';
 import logoUrl from './logo-small.png';
@@ -18,7 +18,7 @@ import logoUrl2x from './logo-small@2x.png';
 export default function Header() {
   useStyles(s);
   return (
-    <div className={s.root}>
+    <header className={s.root}>
       <div className={s.container}>
         <Navigation />
         <Link className={s.brand} to="/">
@@ -36,6 +36,6 @@ export default function Header() {
           <p className={s.bannerDesc}>Reach your Customers with ease</p>
         </div>
       </div>
-    </div>
+    </header>
   );
 }

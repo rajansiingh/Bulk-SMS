@@ -18,7 +18,7 @@ import createFetch from './createFetch';
 import history from './history';
 import { updateMeta } from './DOMUtils';
 import router from './router';
-import configureStore from "./store/configureStore";
+import configureStore from './store/configureStore';
 
 // Enables critical path CSS rendering
 // https://github.com/kriasoft/isomorphic-style-loader

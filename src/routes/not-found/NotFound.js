@@ -10,7 +10,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './NotFound.css';
+import s from './NotFound.scss';
 
 export default function NotFound({ title }) {
   useStyles(s);

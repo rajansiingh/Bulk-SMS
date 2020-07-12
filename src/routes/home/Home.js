@@ -9,8 +9,10 @@
 
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
-import PropTypes from 'prop-types';
-import s from './Home.css';
+import _ from 'lodash';
+// import PropTypes from 'prop-types';
+import s from './Home.scss';
+import Card from '../../components/Card/Card';
 
 export default function Home() {
   useStyles(s);
@@ -18,17 +20,20 @@ export default function Home() {
     <div className={s.root}>
       <div className={s.container}>
         <h1>This is our Home Page</h1>
+        {_.times(3, index => (
+          <Card key={index} />
+        ))}
       </div>
     </div>
   );
 }
 
-Home.propTypes = {
-  // news: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     title: PropTypes.string.isRequired,
-  //     link: PropTypes.string.isRequired,
-  //     content: PropTypes.string,
-  //   }),
-  // ).isRequired,
-};
+// Home.propTypes = {
+// news: PropTypes.arrayOf(
+//   PropTypes.shape({
+//     title: PropTypes.string.isRequired,
+//     link: PropTypes.string.isRequired,
+//     content: PropTypes.string,
+//   }),
+// ).isRequired,
+// };

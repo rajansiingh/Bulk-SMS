@@ -10,7 +10,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './Login.css';
+import s from './Login.scss';
 
 export default function Login({ title }) {
   useStyles(s);

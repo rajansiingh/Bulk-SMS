@@ -10,7 +10,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './Contact.css';
+import s from './Contact.scss';
 
 export default function Contact({ title }) {
   useStyles(s);

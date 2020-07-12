@@ -10,7 +10,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './Register.css';
+import s from './Register.scss';
 
 export default function Register({ title }) {
   useStyles(s);

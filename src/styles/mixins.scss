@@ -1,0 +1,112 @@
+/* eslint-disable at-rule-no-unknown */
+/* stylelint-disable */
+@mixin fontStyle($size: false, $color: false, $weight: false, $lh: false, $style: false, $textDecoration: false) {
+  @if $size { font-size: $size; }
+
+  @if $color { color: $color; }
+
+  @if $weight { font-weight: $weight; }
+
+  @if $lh { line-height: $lh; }
+
+  @if $style { font-style: $style; }
+
+  @if $textDecoration { text-decoration: $textDecoration; }
+}
+
+// mixin to add ellipsis
+@mixin ellipsis ($maxWidth: false) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @if $maxWidth { max-width: $maxWidth; }
+}
+
+// Mixin for multiline ellipsis support on web
+// this will provide support only for -webkit- browser for till date
+@mixin ellipsisMulti ($maxLine, $maxHeight: false) {
+  display: -webkit-box;
+  -webkit-line-clamp: $maxLine;
+  -webkit-box-orient: vertical;
+  overflow: hidden; // fallback for non supported browsers
+  white-space: normal;
+
+  @if $maxHeight { // fallback for non supported browsers if required
+    max-height: $maxHeight;
+  }
+}
+
+// mixin for position
+@mixin position($position, $top: false, $right: false, $bottom: false, $left: false, $zIndex: false) {
+  position: $position;
+
+  @if $top { top: $top; }
+
+  @if $right { right: $right; }
+
+  @if $bottom { bottom: $bottom; }
+
+  @if $left { left: $left; }
+
+  @if $zIndex { z-index: $zIndex; }
+}
+
+// mixin for width, height, max-width & max-height
+@mixin dimensions($width: false, $height: false, $maxWidth: false, $maxHeight: false) {
+  @if $width { width: $width; }
+
+  @if $height { height: $height; }
+
+  @if $maxWidth { max-width: $maxWidth; }
+
+  @if $maxHeight { max-height: $maxHeight; }
+}
+
+// mixin for display flex with all property
+@mixin flexBox($display: false, $item: false, $content: false, $flexWrap: false, $flexDirection: false, $flex: false) {
+  @if $display { display: $display; }
+
+  @if $item { align-items: $item; }
+
+  @if $content { justify-content: $content; }
+
+  @if $flexWrap { flex-wrap: $flexWrap; }
+
+  @if $flexDirection { flex-direction: $flexDirection; }
+
+  @if $flex { flex: $flex; }
+}
+
+// mixin to create a link
+@mixin link($size: false, $color: false, $weight: false, $decoration: false, $lh: false) {
+  cursor: pointer;
+
+  @if $size { font-size: $size; }
+
+  @if $color { color: $color; }
+
+  @if $weight { font-weight: $weight; }
+
+  @if $decoration { text-decoration: $decoration; }
+
+  @if $lh { line-height: $lh; }
+}
+
+// mixin for background properties
+@mixin background($background: false, $repeat: false, $size: false, $position: false, $attachment: false) {
+  @if $background { background-image: $background; }
+
+  @if $repeat { background-repeat: $repeat; }
+
+  @if $size { background-size: $size; }
+
+  @if $position { background-position: $position; }
+
+  @if $attachment { background-attachment: $attachment; }
+}
+
+//hack for firefox to support display flex properties
+@mixin flexSupport {
+  min-height: 0;
+}
