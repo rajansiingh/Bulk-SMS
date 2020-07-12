@@ -11,8 +11,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import StyleContext from 'isomorphic-style-loader/StyleContext';
-import ApplicationContext from './ApplicationContext';
 import { Provider } from 'react-redux';
+import ApplicationContext from './ApplicationContext';
 
 /**
  * The top-level React component setting context (global) variables
@@ -40,13 +40,11 @@ import { Provider } from 'react-redux';
 export default function App({ context, insertCss, children }) {
   // NOTE: If you need to add or modify header, footer etc. of the app,
   // please do that inside the Layout component.
-  const store = this.props.context.store;
+  const { store } = context;
   return (
     <StyleContext.Provider value={{ insertCss }}>
       <ApplicationContext.Provider value={{ context }}>
-        <Provider store={store}>
-          {React.Children.only(children)}
-        </Provider>
+        <Provider store={store}>{React.Children.only(children)}</Provider>
       </ApplicationContext.Provider>
     </StyleContext.Provider>
   );
@@ -61,6 +59,7 @@ App.propTypes = {
     fetch: PropTypes.func.isRequired,
     pathname: PropTypes.string.isRequired,
     query: PropTypes.object,
+    store: PropTypes.object,
   }).isRequired,
   children: PropTypes.element.isRequired,
 };

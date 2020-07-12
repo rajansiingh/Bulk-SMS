@@ -9,8 +9,8 @@
 
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
-import PropTypes from 'prop-types';
-import s from './Home.css';
+// import PropTypes from 'prop-types';
+import s from './Home.scss';
 
 export default function Home() {
   useStyles(s);
@@ -23,12 +23,12 @@ export default function Home() {
   );
 }
 
-Home.propTypes = {
-  // news: PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     title: PropTypes.string.isRequired,
-  //     link: PropTypes.string.isRequired,
-  //     content: PropTypes.string,
-  //   }),
-  // ).isRequired,
-};
+// Home.propTypes = {
+// news: PropTypes.arrayOf(
+//   PropTypes.shape({
+//     title: PropTypes.string.isRequired,
+//     link: PropTypes.string.isRequired,
+//     content: PropTypes.string,
+//   }),
+// ).isRequired,
+// };

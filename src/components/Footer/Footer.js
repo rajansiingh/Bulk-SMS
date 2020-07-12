@@ -9,7 +9,7 @@
 
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
-import s from './Footer.css';
+import s from './Footer.scss';
 import Link from '../Link';
 
 export default function Footer() {

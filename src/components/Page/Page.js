@@ -10,7 +10,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './Page.css';
+import s from './Page.scss';
 
 export default function Page({ title, html }) {
   useStyles(s);

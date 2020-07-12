@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux';
+
 export const reducersList = {};
-export default function rootReducer(asyncReducers) {
+export default function rootReducer(asyncReducers = {}) {
   return combineReducers({
     ...reducersList,
-    ...asyncReducers
+    ...asyncReducers,
   });
 }

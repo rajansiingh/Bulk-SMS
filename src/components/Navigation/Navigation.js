@@ -10,7 +10,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import cx from 'classnames';
-import s from './Navigation.css';
+import s from './Navigation.scss';
 import Link from '../Link';
 
 export default function Navigation() {

@@ -10,7 +10,7 @@
 import useStyles from 'isomorphic-style-loader/useStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
-import s from './ErrorPage.css';
+import s from './ErrorPage.scss';
 
 export function ErrorPageWithoutStyle({ error }) {
   if (__DEV__ && error) {

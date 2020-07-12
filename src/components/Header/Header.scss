@@ -7,11 +7,9 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-@import '../variables.css';
+@import '../variables';
 
-:root {
-  --brand-color: #61dafb;
-}
+$brandColor: #61dafb;
 
 .root {
   background: #373277;
@@ -25,7 +23,7 @@
 }
 
 .brand {
-  color: color(var(--brand-color) lightness(+10%));
+  color: $brandColor;
   text-decoration: none;
   font-size: 1.75em; /* ~28px */
 }
